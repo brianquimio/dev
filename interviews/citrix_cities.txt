@@ -1,0 +1,9 @@
+austin,texas,1001934
+seattle,washington,1928348
+houston,texas,8092341
+dallas,texas,3381062
+fortlauterdale,florida,738102
+newyorkcity,newyork,4518932
+denver,colorado,2190386
+sanantonio,texas,4189401
+lubbock,texas,341890

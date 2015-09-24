@@ -21,6 +21,6 @@ public class Player {
     public int getNumPlayers() {
         return numPlayers;
     }
-    
+
 }
 
