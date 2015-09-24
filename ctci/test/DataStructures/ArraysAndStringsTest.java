@@ -1,4 +1,4 @@
-package ctci.test;
+package ctci.test.DataStructures;
 
 import ctci.src.DataStructures.ArraysAndStrings;
 import org.junit.Test;
