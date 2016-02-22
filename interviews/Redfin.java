@@ -1,11 +1,11 @@
-package random;
+package interviews;
 
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class distinctNum {
+public class Redfin {
 
     public static List<Integer> findIntersect(List<ArrayList<Integer>> groups) {
         HashMap<Integer, Integer> map = new HashMap<>();

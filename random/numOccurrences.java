@@ -3,7 +3,8 @@ package random;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class numOccurences {
+public class numOccurrences {
+
 
     public static HashMap<Integer, Integer> count (ArrayList<Integer> list) {
 
@@ -40,3 +41,4 @@ public class numOccurences {
 
 
 }
+
