@@ -20,7 +20,7 @@ public class Fibonacci {
             return M[n];
         }
         else {
-            val = M[n-1] + M[n-2];
+            val = mem(n-1) + mem(n-2);
             M[n] = val;
             return val;
         }
