@@ -4,6 +4,8 @@ import java.util.*;
 
 import com.sun.deploy.util.StringUtils;
 import org.junit.Test;
+
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class Qualtrics2 {
@@ -36,19 +38,16 @@ public class Qualtrics2 {
 
     @Test
     public void test1() throws Exception {
-        String[] expected = {"apple", "pear", "orange"};
         String[] s = {"apple", "orange", "pear", "orange"};
         String[] actual = removeOccurrence(s, "orange");
-        assertEquals(expected, actual);
+        assertThat(actual, is(Arrays.asList("apple", "pear", "orange")));
 
         String[] actual2 = removeOccurrence(s, "tomato");
-        assertEquals(s, actual2);
+        assertThat(actual2, is(s));
 
         String[] s3 = {"apple", "orange", "pear"};
-        String[] expected3 = {"apple", "orange"};
         String[] actual3 = removeOccurrence(s3, "pear");
-        assertEquals(expected3, actual3);
-
+        assertThat(actual3, is(Arrays.asList("apple", "orange")));
     }
 
     public class Path {
@@ -85,11 +84,11 @@ public class Qualtrics2 {
     @Test
     public void test2() throws Exception {
         Path p = new Path("/a/./b/c/d/../../e"); // a/b/e/
-        assertEquals(p.getAbsolutePath(), "/a/b/e/");
+        assertThat(p.getAbsolutePath(), is("/a/b/e/"));
         p.cd("x/./y/../z/");
-        assertEquals(p.getAbsolutePath(), "/a/b/e/x/z/");
+        assertThat(p.getAbsolutePath(), is("/a/b/e/x/z/"));
         p.cd("/d/e/f/");
-        assertEquals(p.getAbsolutePath(), "/d/e/f/");
+        assertThat(p.getAbsolutePath(), is("/d/e/f/"));
 
     }
 
@@ -116,13 +115,9 @@ public class Qualtrics2 {
     public void test3() throws Exception {
         Integer[] a = {1,4,3,1};
         Integer[] b = {1,2,5,3,3};
-        ArrayList<Integer> expected = new ArrayList<>();
-        expected.add(1);
-        expected.add(3);
+        ArrayList<Integer> expected = new ArrayList<>(Arrays.asList(1,3));
         ArrayList<Integer> result = findIntersection(a, b);
-
-        assertEquals(result, expected);
-
+        assertThat(result, is(expected));
     }
 
     //maze if path exists from top to bottom
@@ -140,8 +135,9 @@ public class Qualtrics2 {
         }
 
         visited[row][col] = true;
-        return pathExistsHelper(grid, row+1, col, visited) || pathExistsHelper(grid, row, col-1, visited)
-                || pathExistsHelper(grid, row, col+1, visited);
+        return pathExistsHelper(grid, row+1, col, visited) ||
+                pathExistsHelper(grid, row, col-1, visited) ||
+                pathExistsHelper(grid, row, col+1, visited);
     }
 
     public static boolean pathExists(int[][] grid, boolean[][] visited) {
@@ -159,16 +155,13 @@ public class Qualtrics2 {
         int[][] grid = {{1,0,0,0}, {1,1,1,1}, {0,0,0,1}, {0,0,0,1}};
         boolean[][] visited = {{false, false, false, false}, {false, false, false, false},
                 {false, false, false, false}, {false, false, false, false}};
-        boolean expected = true;
         boolean actual = pathExists(grid, visited);
-        assertEquals(expected, actual);
+        assertThat(actual, is(true));
 
         int[][] grid2 = {{1,0,0,0}, {1,1,1,1}, {0,1,1,0}, {0,0,0,1}};
-        expected = false;
         actual = pathExists(grid2, visited);
-        assertEquals(expected, actual);
+        assertThat(actual, is(false));
     }
-
 
     /*
         Why use BST over HashMap
@@ -196,7 +189,6 @@ public class Qualtrics2 {
             }
             bottom = maxVals;
             row--;
-
         }
 
         return maxVals[0];
@@ -206,19 +198,16 @@ public class Qualtrics2 {
     @Test
     public void test5() throws Exception {
         int[][] nums = {{2}, {1,3}, {5,9,7}, {4,6,8,0}};
-        int expected = 22;
         int actual = maxSumPyramid(nums);
-        assertEquals(expected, actual);
+        assertThat(actual, is(22));
 
         int[][] nums2 = {{2}, {1,3}};
-        expected = 5;
         actual = maxSumPyramid(nums2);
-        assertEquals(expected, actual);
+        assertThat(actual, is(5));
 
         int[][] nums3 = {{2}, {1,3}, {5,9,7}};
-        expected = 14;
         actual = maxSumPyramid(nums3);
-        assertEquals(expected, actual);
+        assertThat(actual, is(14));
     }
 
 

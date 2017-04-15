@@ -1,6 +1,8 @@
 package interviews;
 
 import org.junit.Test;
+
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class VMware {
@@ -31,27 +33,19 @@ public class VMware {
         }
 
         return result;
-
     }
 
     @Test
     public void testSubstring () throws Exception {
-
-        int expected = 6;
         int result = substring("abc", "xyz123abc");
-        assertEquals(expected, result);
+        assertThat(result, is(6));
 
-        expected = -1;
         result = substring("abc", "xyzab123");
-        assertEquals(expected, result);
+        assertThat(result, is(-1));
 
-        expected = -1;
         result = substring("abc", "xyz123ab");
-        assertEquals(expected, result);
-
+        assertThat(result, is(-1));
     }
 
     //TODO: web crawler question
-
-
 }

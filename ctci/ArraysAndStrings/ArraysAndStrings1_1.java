@@ -1,5 +1,7 @@
 package ctci.ArraysAndStrings;
 import org.junit.Test;
+
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
@@ -27,14 +29,12 @@ public class ArraysAndStrings1_1 {
     @Test
     public void testOneDotOne() throws Exception {
         String s = "abcdefg";
-        boolean expected = true;
         boolean result = oneDotOne(s);
-        assertEquals(expected, result);
+        assertThat(result, is(true));
 
         s = "abcdefga";
-        expected = false;
         result = oneDotOne(s);
-        assertEquals(expected, result);
+        assertThat(result, is(false));
     }
 
 

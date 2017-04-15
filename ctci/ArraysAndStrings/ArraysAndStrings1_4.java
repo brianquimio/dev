@@ -1,5 +1,7 @@
 package ctci.ArraysAndStrings;
 import org.junit.Test;
+
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class ArraysAndStrings1_4 {
@@ -24,16 +26,10 @@ public class ArraysAndStrings1_4 {
 
     @Test
     public void testOneDotFour() throws Exception {
-        String s = "Hi Brian";
-        String expected = "Hi%20Brian";
-        String result = oneDotFour(s);
-        assertEquals(expected, result);
+        String result = oneDotFour("Hi Brian");
+        assertThat(result, is("Hi%20Brian"));
 
-        s = "Hi Brian ";
-        expected = "Hi%20Brian%20";
-        result = oneDotFour(s);
-        assertEquals(expected, result);
+        result = oneDotFour("Hi Brian ");
+        assertThat(result, is("Hi%20Brian%20"));
     }
-
-
 }

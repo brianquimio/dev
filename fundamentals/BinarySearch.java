@@ -1,6 +1,8 @@
 package fundamentals;
 
 import org.junit.Test;
+
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class BinarySearch {
@@ -28,12 +30,8 @@ public class BinarySearch {
 
     @Test
     public void test() throws Exception {
-        int expected = 1;
         int[] a = {1,3,4,5,7,9};
         int result = binarySearch(a, 3);
-        assertEquals(expected, result);
-
-
+        assertThat(result, is(1));
     }
-
 }

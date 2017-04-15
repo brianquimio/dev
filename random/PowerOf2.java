@@ -2,6 +2,8 @@ package random;
 
 
 import org.junit.Test;
+
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class PowerOf2 {
@@ -42,35 +44,17 @@ public class PowerOf2 {
 
     @Test
     public void test() throws Exception {
-        boolean expected = true;
-        boolean result = iterative(128);
-        assertEquals(result,expected);
-
-        result = iterative(1);
-        assertEquals(result, expected);
-
-        expected = false;
-        result = iterative(96);
-        assertEquals(result, expected);
-
-        result = iterative(98);
-        assertEquals(result, expected);
+        assertThat(iterative(128), is(true));
+        assertThat(iterative(1), is(true));
+        assertThat(iterative(96), is(false));
+        assertThat(iterative(98), is(false));
     }
 
     @Test
     public void test2() throws Exception {
-        boolean expected = true;
-        boolean result = recursive(128);
-        assertEquals(result,expected);
-
-        result = iterative(1);
-        assertEquals(result, expected);
-
-        expected = false;
-        result = recursive(96);
-        assertEquals(result, expected);
-
-        result = recursive(98);
-        assertEquals(result, expected);
+        assertThat(recursive(128), is(true));
+        assertThat(recursive(1), is(true));
+        assertThat(recursive(96), is(false));
+        assertThat(recursive(98), is(false));
     }
 }

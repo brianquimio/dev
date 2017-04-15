@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class Recursion8_1 {
@@ -36,14 +37,7 @@ public class Recursion8_1 {
     public void test() throws Exception {
         System.out.println(countWays(20));
 
-        int result = 4;
-        int expected = countWays(3);
-        assertEquals(result, expected);
-
-        result = 2;
-        expected = countWays(2);
-        assertEquals(result, expected);
+        assertThat(countWays(3), is(4));
+        assertThat(countWays(2), is(2));
     }
-
-
 }

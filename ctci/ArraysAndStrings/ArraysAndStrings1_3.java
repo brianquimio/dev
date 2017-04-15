@@ -1,5 +1,7 @@
 package ctci.ArraysAndStrings;
 import org.junit.Test;
+
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
@@ -31,20 +33,10 @@ public class ArraysAndStrings1_3 {
 
     @Test
     public void testOneDotThree() throws Exception {
-        String s1 = "abcd";
-        String s2 = "dbca";
-        boolean expected = true;
-        boolean result = oneDotThree(s1, s2);
-        assertEquals(expected, result);
+        boolean result = oneDotThree("abcd", "dbca");
+        assertThat(result, is(true));
 
-        s1 = "zzzz";
-        s2 = "zzza";
-        expected = false;
-        result = oneDotThree(s1, s2);
-        assertEquals(expected,result);
+        result = oneDotThree("zzzz", "zzza");
+        assertThat(result, is(false));
     }
-
-
-
-
 }

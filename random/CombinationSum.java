@@ -2,6 +2,8 @@ package random;
 
 import org.junit.Test;
 import java.util.ArrayList;
+
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class CombinationSum {
@@ -29,7 +31,6 @@ public class CombinationSum {
         int result = 0;
         int expected = 0;
 
-        assertEquals(result, expected);
-
+        assertThat(0, is(0));
     }
 }

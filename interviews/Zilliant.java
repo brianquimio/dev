@@ -1,6 +1,8 @@
 package interviews;
 
 import org.junit.Test;
+
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
@@ -20,10 +22,10 @@ public class Zilliant {
     public void isGoldenTest() throws Exception {
 
         List<Integer> emptyList = new ArrayList<Integer>();
-        assertEquals(false, isGolden(emptyList, 2));
-        assertEquals(false, isGolden(Arrays.asList(1, 1, 2, 3, 5, 8, 13, 21, 34), 17));
-        assertEquals(true,  isGolden(Arrays.asList(1, 2, 3, 4, 5), 5));
-        assertEquals(true,  isGolden(Arrays.asList(1, 1, 2), 2));
+        assertThat(isGolden(emptyList, 2), is(false));
+        assertThat(isGolden(Arrays.asList(1, 1, 2, 3, 5, 8, 13, 21, 34), 17), is(false));
+        assertThat(isGolden(Arrays.asList(1, 2, 3, 4, 5), 5), is(true));
+        assertThat(isGolden(Arrays.asList(1, 1, 2), 2), is(true));
     }
 
     public static boolean isGolden (List<Integer> list, int golden) {
